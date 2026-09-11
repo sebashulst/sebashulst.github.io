@@ -288,7 +288,7 @@ section{position:relative}
 /* ---------- case pagina ---------- */
 .case-hero{padding-top:clamp(120px,18vh,220px)}
 .case-hero h1{margin-block:clamp(18px,2.4vw,32px) clamp(24px,3vw,40px)}
-.case-figure{background:var(--grey-light);overflow:hidden}
+.case-figure{background:var(--grey-light);overflow:hidden;margin-inline:0}
 .case-figure img{width:100%}
 .case-figure.is-tall{max-width:900px;margin-inline:auto}
 figcaption{font-size:.82rem;color:var(--grey);padding-top:12px}
