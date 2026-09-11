@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sebastiaan Hulst, UX/UI Designer</title>
+<meta name="description" content="Sebastiaan Hulst is UX/UI Designer in Amstelveen. Ik ontwerp interfaces die ook echt gebouwd worden. Van eerste schets tot handoff.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23B4FF3B'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=8">
+</head>
+<body>
+
+<!-- intro loader -->
+<div id="loader">
+  <div class="l-name"><span>Sebastiaan Hulst</span></div>
+  <div class="l-count">000</div>
+  <div class="l-bar"></div>
+</div>
+<div id="curtain"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">Sebastiaan Hulst<em>.</em></a>
+  <nav class="nav">
+    <a class="link-u nav-hide" href="#werk">Werk</a>
+    <a class="link-u nav-hide" href="#over">Over mij</a>
+    <a class="link-u" href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero wrap" data-hero>
+    <div class="hero-top" data-hero-fade>
+      <p class="eyebrow hero-in">UX/UI Designer, Amstelveen</p>
+    </div>
+    <div data-hero-fade>
+      <h1 class="h-xl" data-split data-noscroll>Ik ontwerp interfaces die ook echt gebouwd worden.</h1>
+      <div class="hero-foot">
+        <p class="lead hero-in">
+          Ik ben Sebastiaan, UX/UI Designer bij een Amsterdams agency. Ik werk het liefst
+          in het gebied waar ontwerp en bouw elkaar raken: strak visueel werk dat de week
+          erna gewoon live staat.
+        </p>
+        <div class="scroll-hint hero-in"><i></i> Scroll</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MARQUEE ================= -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>UI Design</span><span>UX Design</span><span>Design Systems</span>
+      <span>Prototyping</span><span>Graphic Design</span><span>Webdesign</span>
+      <span>AI-tooling</span>
+    </div>
+  </div>
+
+  <!-- ================= WERK ================= -->
+  <section class="section-pad wrap" id="werk">
+    <div class="section-head">
+      <p class="eyebrow fade-up">Geselecteerd werk</p>
+      <p class="muted fade-up" data-delay=".08">2024 - 2026</p>
+    </div>
+
+    <div class="work-list">
+
+      <a class="work-item" href="werk-jonkers-yachts.html" data-preview="assets/img/jonkers-oktober-thumb.jpg">
+        <div class="row">
+          <span class="idx">01</span>
+          <span class="title">Jonkers Yachts</span>
+          <span class="meta">Print &amp; campagne, 2026</span>
+          <svg class="arrow" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M10 30 L30 10 M30 10 H14 M30 10 V26" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Vervang deze twee regels zodra je meer werk aanlevert -->
+      <div class="work-item is-soon">
+        <div class="row">
+          <span class="idx">02</span>
+          <span class="title">Volgend project</span>
+          <span class="meta"><span class="tag">In aanbouw</span></span>
+        </div>
+      </div>
+      <div class="work-item is-soon">
+        <div class="row">
+          <span class="idx">03</span>
+          <span class="title">Volgend project</span>
+          <span class="meta"><span class="tag">In aanbouw</span></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= OVER MIJ ================= -->
+  <section class="section-pad wrap" id="over">
+    <div class="grid cols-sidebar">
+      <div class="portrait-col">
+        <figure class="portrait fade-up">
+          <!-- Zodra assets/img/portret.jpg bestaat verdwijnt de placeholder vanzelf.
+               Ontbreekt het bestand, dan blijft de placeholder staan zonder gebroken beeld. -->
+          <img src="assets/img/portret.jpg" alt="Sebastiaan Hulst, UX/UI Designer"
+               onload="var p=this.parentNode.querySelector('.ph'); if(p) p.remove();"
+               onerror="this.remove();">
+          <div class="ph">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/>
+            </svg>
+            Portretfoto
+          </div>
+        </figure>
+      </div>
+
+      <div>
+        <p class="eyebrow fade-up">Over mij</p>
+        <h2 class="h-md fade-up" data-delay=".05" style="margin:24px 0 28px">
+          Visueel sterk, prettig in gebruik, met een doel.
+        </h2>
+        <div class="fade-up" data-delay=".1">
+          <p class="lead">
+            Ik ontwerp het liefst iets dat er goed uitziet en tegelijk prettig werkt,
+            met altijd een conversie in gedachten. Een scherm dat mooi is maar de
+            bezoeker niet verder helpt, is voor mij niet af.
+          </p>
+          <p class="muted">
+            Ik vind mijn weg in een WordPress-backend, lees HTML en CSS,
+            en lever bestanden op waar een developer niets aan hoeft te raden. Daarnaast
+            gebruik ik AI dagelijks in mijn proces. Ik laat audits draaien op bestaande
+            sites, onderzoek doen naar een markt of doelgroep, beeld genereren en snelle
+            uitwerkingen maken van meerdere richtingen. Daaruit kies ik er een die ik
+            zelf verder uitwerk. Waar anderen nog wireframen, ligt er bij mij al iets
+            om op te reageren.
+          </p>
+          <p class="muted">
+            Buiten het werk sta ik op de padelbaan of kijk ik Ajax.
+          </p>
+        </div>
+
+        <ul class="fact-list fade-up" data-delay=".14">
+          <li><span>Nu</span><span>UX/UI Designer bij WP Masters</span></li>
+          <li><span>Opleiding</span><span>CMD, Hogeschool van Amsterdam</span></li>
+          <li><span>Tools</span><span>Figma · Photoshop · Magnific · Claude en meer</span></li>
+          <li><span>Techniek</span><span>WordPress · HTML/CSS · AI-workflows</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact section-pad" id="contact">
+    <div class="wrap">
+      <p class="eyebrow fade-up">Contact</p>
+      <h2 class="h-xl" data-split style="margin:24px 0 0">Laten we praten.</h2>
+
+      <div class="grid cols-2" style="margin-top:clamp(40px,6vw,80px)">
+        <div>
+          <a class="mail-link link-u fade-up" href="mailto:sebastiaanhulst@hotmail.nl">sebastiaanhulst@hotmail.nl</a>
+          <div class="contact-meta fade-up" data-delay=".08">
+            <div class="item"><span>Telefoon</span><a class="link-u" href="tel:+31637446297">06 374 46 297</a></div>
+            <div class="item"><span>LinkedIn</span><a class="link-u" href="https://www.linkedin.com/in/sebastiaan-hulst-47a4691a1/" target="_blank" rel="noopener">/sebastiaan-hulst</a></div>
+            <div class="item"><span>Locatie</span>Amstelveen, NL</div>
+          </div>
+        </div>
+
+        <form class="form fade-up" data-delay=".12" id="contact-form"
+              action="https://formspree.io/f/mrpgjjyo" method="post">
+          <div class="field">
+            <input type="text" id="name" name="name" placeholder=" " required>
+            <label for="name">Je naam</label>
+          </div>
+          <div class="field">
+            <input type="email" id="email" name="email" placeholder=" " required>
+            <label for="email">Je e-mailadres</label>
+          </div>
+          <div class="field">
+            <textarea id="message" name="message" placeholder=" " required></textarea>
+            <label for="message">Waar gaat het over?</label>
+          </div>
+          <!-- onderwerp van de mail die jij ontvangt -->
+          <input type="hidden" name="_subject" value="Nieuw bericht via je portfolio">
+          <!-- spamval: onzichtbaar voor mensen, bots vullen 'm wel in -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
+                 style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <button class="btn" type="submit" data-magnetic><span>Versturen</span></button>
+          <p class="form-note" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Sebastiaan Hulst</span>
+    <span><a class="link-u" href="https://www.linkedin.com/in/sebastiaan-hulst-47a4691a1/" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+</footer>
+
+<div id="preview"><img src="" alt=""></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="js/main.js?v=8"></script>
+</body>
+</html>
