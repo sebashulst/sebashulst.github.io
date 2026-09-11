@@ -131,10 +131,34 @@ section{position:relative}
 .hero h1{margin-bottom:clamp(28px,4.5vw,64px);max-width:16ch}
 .hero-foot{display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,64px);align-items:flex-end;justify-content:space-between}
 .hero-foot .lead{max-width:46ch}
-.scroll-hint{display:flex;align-items:center;gap:10px;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
-.scroll-hint i{display:block;width:1px;height:44px;background:var(--line);position:relative;overflow:hidden}
-.scroll-hint i::after{content:'';position:absolute;inset:0;background:var(--accent);animation:trickle 2.2s var(--ease) infinite}
-@keyframes trickle{0%{transform:translateY(-100%)}60%,100%{transform:translateY(100%)}}
+/* Cue naar de volgende sectie.
+   Geen generieke scroll-pijl: hij benoemt waar je heen gaat en de hairline
+   laat zien hoe dichtbij dat is. De vulling komt van de scrollpositie (js),
+   niet van een lopende animatie -- de bezoeker stuurt hem zelf. */
+.next-cue{display:flex;align-items:center;gap:14px;color:var(--grey)}
+.next-cue-track{position:relative;display:block;flex:none;width:1px;height:58px;background:var(--line)}
+.next-cue-track i{position:absolute;left:0;top:0;width:1px;height:var(--cue,0%);background:var(--accent)}
+.next-cue-track::after{
+  content:'';position:absolute;left:-2px;top:var(--cue,0%);margin-top:-2.5px;
+  width:5px;height:5px;border-radius:50%;background:var(--accent);
+}
+/* zolang er nog niet gescrold is zakt de kop traag op en neer: een
+   uitnodiging, geen knipperlicht */
+.next-cue.is-idle .next-cue-track::after{animation:cue-idle 3.2s var(--ease) infinite}
+@keyframes cue-idle{0%,64%,100%{transform:translateY(0)}32%{transform:translateY(8px)}}
+
+.next-cue-text{display:grid;gap:6px;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase}
+.next-cue-name{position:relative;color:var(--black);letter-spacing:.1em}
+.next-cue-name::after{
+  content:'';position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:currentColor;
+  transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease);
+}
+.next-cue:hover .next-cue-name::after,
+.next-cue:focus-visible .next-cue-name::after{transform:scaleX(1);transform-origin:left}
+.next-cue:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+@media(prefers-reduced-motion:reduce){
+  .next-cue.is-idle .next-cue-track::after{animation:none}
+}
 
 /* word reveal */
 .reveal-line{overflow:hidden;display:block}

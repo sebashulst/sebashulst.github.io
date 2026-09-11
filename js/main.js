@@ -247,6 +247,32 @@
     });
   }
 
+  /* ---------- hero: cue naar de volgende sectie ------------------------- */
+  /* De hairline vult zich precies over de afstand waarin de hero uitfadet,
+     zodat hij vol staat op het moment dat de cue zelf verdwijnt. */
+  (function () {
+    var cue = document.querySelector('.next-cue');
+    if (!cue) return;
+
+    var wachtend = false;
+
+    function update() {
+      wachtend = false;
+      var afstand = window.innerHeight * .6;
+      var p = afstand > 0 ? Math.min(window.scrollY / afstand, 1) : 1;
+      cue.style.setProperty('--cue', (p * 100).toFixed(1) + '%');
+      cue.classList.toggle('is-idle', p < .01);
+    }
+
+    function onScroll() {
+      if (!wachtend) { wachtend = true; requestAnimationFrame(update); }
+    }
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+  })();
+
   /* ---------- contactformulier ------------------------------------------ */
   var form = document.getElementById('contact-form');
   if (form) {
