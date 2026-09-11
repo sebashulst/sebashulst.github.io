@@ -153,6 +153,25 @@
   });
 
   /* ---------- scroll-reveals -------------------------------------------- */
+  /* Elementen die bij het laden al binnen de triggergrens vallen, zouden hun
+     ScrollTrigger meteen afvuren -- nog voordat de hero-intro is begonnen. Op
+     een casepagina betekende dat een beeld dat al stond terwijl de tekst
+     erboven nog inkwam. Die worden hier apart gezet en achter de intro
+     aangehangen. */
+  var naIntro = [];
+
+  function staatAlInBeeld(el, grens) {
+    return el.getBoundingClientRect().top < window.innerHeight * grens;
+  }
+
+  function speelNaIntro() {
+    naIntro.forEach(function (item, i) {
+      item.opts.delay = (item.opts.delay || 0) + i * .12;
+      gsap.to(item.el, item.opts);
+    });
+    naIntro.length = 0;
+  }
+
   function initReveals() {
     if (!animate || !window.ScrollTrigger) { showEverything(); return; }
 
@@ -166,12 +185,19 @@
       });
     });
 
+    var heeftHero = !!document.querySelector('[data-hero]');
+
     gsap.utils.toArray('.fade-up').forEach(function (el) {
-      gsap.to(el, {
+      var opts = {
         opacity: 1, y: 0, duration: 1, ease: 'expo.out',
-        delay: parseFloat(el.dataset.delay || 0),
-        scrollTrigger: { trigger: el, start: 'top 90%' }
-      });
+        delay: parseFloat(el.dataset.delay || 0)
+      };
+      if (heeftHero && staatAlInBeeld(el, .9)) {
+        naIntro.push({ el: el, opts: opts });
+        return;
+      }
+      opts.scrollTrigger = { trigger: el, start: 'top 90%' };
+      gsap.to(el, opts);
     });
 
     gsap.utils.toArray('.rule').forEach(function (el) {
@@ -228,7 +254,8 @@
     if (!h) return;
     var tl = gsap.timeline();
     tl.to(h.querySelectorAll('.reveal-word > span'), { y: '0%', duration: 1.2, ease: 'expo.out', stagger: .05 })
-      .to(h.querySelectorAll('.hero-in'), { opacity: 1, y: 0, duration: 1, ease: 'expo.out', stagger: .1 }, '-=.75');
+      .to(h.querySelectorAll('.hero-in'), { opacity: 1, y: 0, duration: 1, ease: 'expo.out', stagger: .1 }, '-=.75')
+      .call(speelNaIntro, null, '-=.2');
   }
 
   function setupTransitions() {
