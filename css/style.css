@@ -300,7 +300,13 @@ figcaption{font-size:.82rem;color:var(--grey);padding-top:12px}
   display:grid;grid-template-columns:repeat(2,1fr);
   gap:clamp(10px,1.4vw,20px);
 }
-@media(min-width:760px){.case-grid{grid-template-columns:repeat(4,1fr)}}
+/* vijf beelden, dus op smal loopt de laatste over beide kolommen -- anders
+   blijft er een halve wees onderaan staan */
+.case-grid .case-shot:last-child{grid-column:span 2}
+@media(min-width:1000px){
+  .case-grid{grid-template-columns:repeat(5,1fr)}
+  .case-grid .case-shot:last-child{grid-column:auto}
+}
 .case-shot{position:relative;overflow:hidden;background:var(--grey-light);aspect-ratio:3/4;margin-inline:0}
 .case-shot img{width:100%;height:100%;object-fit:cover}
 .case-shot .ph{gap:4px;font-size:.62rem;letter-spacing:.04em;text-transform:none;background:var(--grey-light)}
