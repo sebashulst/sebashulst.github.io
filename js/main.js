@@ -153,23 +153,23 @@
   });
 
   /* ---------- scroll-reveals -------------------------------------------- */
-  /* Elementen die bij het laden al binnen de triggergrens vallen, zouden hun
-     ScrollTrigger meteen afvuren -- nog voordat de hero-intro is begonnen. Op
-     een casepagina betekende dat een beeld dat al stond terwijl de tekst
-     erboven nog inkwam. Die worden hier apart gezet en achter de intro
-     aangehangen. */
-  var naIntro = [];
+  /* Een reveal mag niet los van de hero-intro opkomen: wat bij het laden al in
+     beeld staat, zou anders animeren terwijl de curtain nog dicht is. Alles wat
+     binnenkomt voordat de intro klaar is, wacht hier in de rij. Meten of iets
+     "in beeld" staat op het moment van init is geen optie: de webfont laadt
+     later en verschuift de layout dan alsnog. */
+  var introKlaar = false;
+  var wachtrij = [];
 
-  function staatAlInBeeld(el, grens) {
-    return el.getBoundingClientRect().top < window.innerHeight * grens;
+  function naIntro(fn) {
+    if (introKlaar) fn(0); else wachtrij.push(fn);
   }
 
-  function speelNaIntro() {
-    naIntro.forEach(function (item, i) {
-      item.opts.delay = (item.opts.delay || 0) + i * .12;
-      gsap.to(item.el, item.opts);
-    });
-    naIntro.length = 0;
+  function introIsKlaar() {
+    if (introKlaar) return;
+    introKlaar = true;
+    wachtrij.forEach(function (fn, i) { fn(i * .12); });
+    wachtrij.length = 0;
   }
 
   function initReveals() {
@@ -185,19 +185,21 @@
       });
     });
 
-    var heeftHero = !!document.querySelector('[data-hero]');
-
     gsap.utils.toArray('.fade-up').forEach(function (el) {
-      var opts = {
+      var tw = gsap.to(el, {
         opacity: 1, y: 0, duration: 1, ease: 'expo.out',
-        delay: parseFloat(el.dataset.delay || 0)
-      };
-      if (heeftHero && staatAlInBeeld(el, .9)) {
-        naIntro.push({ el: el, opts: opts });
-        return;
-      }
-      opts.scrollTrigger = { trigger: el, start: 'top 90%' };
-      gsap.to(el, opts);
+        delay: parseFloat(el.dataset.delay || 0),
+        paused: true
+      });
+      ScrollTrigger.create({
+        trigger: el, start: 'top 90%', once: true,
+        onEnter: function () {
+          naIntro(function (extra) {
+            if (extra) gsap.delayedCall(extra, function () { tw.play(); });
+            else tw.play();
+          });
+        }
+      });
     });
 
     gsap.utils.toArray('.rule').forEach(function (el) {
@@ -251,11 +253,11 @@
 
   function playHero() {
     var h = document.querySelector('[data-hero]');
-    if (!h) return;
+    if (!h) { introIsKlaar(); return; }
     var tl = gsap.timeline();
     tl.to(h.querySelectorAll('.reveal-word > span'), { y: '0%', duration: 1.2, ease: 'expo.out', stagger: .05 })
       .to(h.querySelectorAll('.hero-in'), { opacity: 1, y: 0, duration: 1, ease: 'expo.out', stagger: .1 }, '-=.75')
-      .call(speelNaIntro, null, '-=.2');
+      .call(introIsKlaar, null, '-=.2');
   }
 
   function setupTransitions() {

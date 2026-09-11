@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=10">
+<link rel="stylesheet" href="css/style.css?v=14">
 </head>
 <body>
 
@@ -43,13 +43,42 @@
 
   <!-- ================= BEELD ================= -->
   <section class="wrap" style="padding-block:clamp(48px,8vw,120px)">
-    <figure class="case-figure is-tall fade-up">
-      <img src="assets/img/jonkers-oktober.jpg"
-           alt="Advertentie Jonkers Yachts voor de Linssen Yachts Boat Show River Trials"
-           width="1413" height="2000" loading="lazy">
-    </figure>
-    <figcaption class="fade-up" style="max-width:900px;margin-inline:auto">
-      Opzet oktober voor de Linssen Yachts Boat Show en River Trials, 9 tot en met 14 oktober.
+    <!-- Vier uitsneden naast elkaar.
+         CHECK: zet de bestanden in assets/img/ onder de namen hieronder, vervang
+         daarna de alt-teksten en het bijschrift. Zolang een bestand ontbreekt
+         blijft de placeholder staan in plaats van een gebroken beeld. -->
+    <div class="case-grid">
+      <figure class="case-shot fade-up">
+        <img src="assets/img/jonkers-detail-01.jpg" alt="CHECK: beschrijf wat hier te zien is"
+             loading="lazy"
+             onload="var p=this.parentNode.querySelector('.ph'); if(p) p.remove();"
+             onerror="this.remove();">
+        <div class="ph"><b>01</b>jonkers-detail-01.jpg</div>
+      </figure>
+      <figure class="case-shot fade-up" data-delay=".06">
+        <img src="assets/img/jonkers-detail-02.jpg" alt="CHECK: beschrijf wat hier te zien is"
+             loading="lazy"
+             onload="var p=this.parentNode.querySelector('.ph'); if(p) p.remove();"
+             onerror="this.remove();">
+        <div class="ph"><b>02</b>jonkers-detail-02.jpg</div>
+      </figure>
+      <figure class="case-shot fade-up" data-delay=".12">
+        <img src="assets/img/jonkers-detail-03.jpg" alt="CHECK: beschrijf wat hier te zien is"
+             loading="lazy"
+             onload="var p=this.parentNode.querySelector('.ph'); if(p) p.remove();"
+             onerror="this.remove();">
+        <div class="ph"><b>03</b>jonkers-detail-03.jpg</div>
+      </figure>
+      <figure class="case-shot fade-up" data-delay=".18">
+        <img src="assets/img/jonkers-detail-04.jpg" alt="CHECK: beschrijf wat hier te zien is"
+             loading="lazy"
+             onload="var p=this.parentNode.querySelector('.ph'); if(p) p.remove();"
+             onerror="this.remove();">
+        <div class="ph"><b>04</b>jonkers-detail-04.jpg</div>
+      </figure>
+    </div>
+    <figcaption class="fade-up" data-delay=".24">
+      CHECK: bijschrift bij de vier beelden.
     </figcaption>
   </section>
 
@@ -109,6 +138,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
-<script src="js/main.js?v=10"></script>
+<script src="js/main.js?v=14"></script>
 </body>
 </html>
