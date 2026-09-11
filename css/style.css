@@ -301,7 +301,7 @@ figcaption{font-size:.82rem;color:var(--grey);padding-top:12px}
   gap:clamp(10px,1.4vw,20px);
 }
 @media(min-width:760px){.case-grid{grid-template-columns:repeat(4,1fr)}}
-.case-shot{position:relative;overflow:hidden;background:var(--grey-light);aspect-ratio:4/5;margin-inline:0}
+.case-shot{position:relative;overflow:hidden;background:var(--grey-light);aspect-ratio:3/4;margin-inline:0}
 .case-shot img{width:100%;height:100%;object-fit:cover}
 .case-shot .ph{gap:4px;font-size:.62rem;letter-spacing:.04em;text-transform:none;background:var(--grey-light)}
 .case-shot .ph b{font-family:var(--font-display);font-size:1.5rem;font-weight:600;letter-spacing:-.03em}
