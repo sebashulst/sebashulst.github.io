@@ -282,14 +282,14 @@ section{position:relative}
 
 /* ---------- footer ---------- */
 .site-footer{background:var(--black);color:rgba(255,255,255,.5);padding:clamp(28px,4vw,44px) 0;font-size:.82rem}
-.site-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.site-footer .wrap{display:block}
 .site-footer a:hover{color:var(--white)}
 
 /* ---------- case pagina ---------- */
 .case-hero{padding-top:clamp(120px,18vh,220px)}
 .case-hero h1{margin-block:clamp(18px,2.4vw,32px) clamp(24px,3vw,40px)}
-.case-figure{background:var(--grey-light);overflow:hidden;margin-inline:0}
-.case-figure img{width:100%}
+.case-figure{overflow:hidden;margin-inline:0}
+.case-figure img{width:100%;background:var(--grey-light)}
 .case-figure.is-tall{max-width:900px;margin-inline:auto}
 figcaption{font-size:.82rem;color:var(--grey);padding-top:12px}
 
@@ -326,6 +326,21 @@ figcaption{font-size:.82rem;color:var(--grey);padding-top:12px}
 .next-case{display:block;border-top:1px solid var(--line);padding-block:clamp(40px,6vw,90px)}
 .next-case:hover .h-lg{color:var(--accent)}
 .next-case .h-lg{transition:color .4s ease}
+.next-case .meta{display:block;color:var(--grey);font-size:.9rem;margin-top:14px}
+
+/* snelcontact in de voet van een casepagina */
+.footer-contact{
+  display:flex;flex-wrap:wrap;align-items:baseline;
+  gap:clamp(12px,2vw,28px);padding-bottom:clamp(22px,3vw,34px);
+  border-bottom:1px solid var(--line-invert);margin-bottom:clamp(20px,2.6vw,28px);
+}
+.footer-contact .eyebrow{color:rgba(255,255,255,.55);margin-right:auto}
+.footer-contact .footer-mail{
+  font-family:var(--font-display);font-size:clamp(1.1rem,2.4vw,1.7rem);
+  letter-spacing:-.03em;color:var(--white);
+}
+.footer-contact .footer-links{display:flex;flex-wrap:wrap;gap:clamp(14px,2vw,28px);font-size:.9rem}
+.site-footer .footer-base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
